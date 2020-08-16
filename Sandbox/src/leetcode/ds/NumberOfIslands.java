@@ -5,9 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-/**
- * You can do this in DFS if you change the Queue to a Stack and corresponding operations
- */
 public class NumberOfIslands {
     public static char WATER = '0';
     public static char LAND = '1';
