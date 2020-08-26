@@ -1,4 +1,4 @@
-package leetcode.google;
+package leetcode.google.trees_graphs.ladderlength;
 
 import java.util.*;
 
