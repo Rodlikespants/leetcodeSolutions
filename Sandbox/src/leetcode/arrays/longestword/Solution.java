@@ -1,4 +1,4 @@
-package leetcode.longestword;
+package leetcode.arrays.longestword;
 
 import java.util.HashMap;
 import java.util.Map;

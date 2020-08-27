@@ -1,4 +1,4 @@
-package leetcode.google;
+package leetcode.google.maxgain;
 
 /**
  * solution from leetcode.com

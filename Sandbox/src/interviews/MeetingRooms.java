@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * Programs Creek Solution
+ * Programs Creek Solution, also see leetcode section
  */
 public class MeetingRooms {
     public static int minMeetingRooms(int[][] intervals) {

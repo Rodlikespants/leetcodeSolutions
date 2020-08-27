@@ -1,4 +1,4 @@
-package leetcode.google;
+package leetcode.arrays;
 
 public class WaterContainer {
     public int maxArea(int[] height) {
