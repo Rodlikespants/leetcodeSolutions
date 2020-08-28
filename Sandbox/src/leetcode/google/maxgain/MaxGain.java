@@ -1,10 +1,7 @@
 package leetcode.google.maxgain;
 
-/**
- * solution from leetcode.com
- */
 public class MaxGain {
-    public static class TreeNode {
+    static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -13,30 +10,33 @@ public class MaxGain {
             val = x;
         }
     }
+    class Solution {
+        class Result {
+            int maxSum;
+            int subGain;
+            Result(int maxSum, int subGain) {
+                this.maxSum = maxSum;
+                this.subGain = subGain;
+            }
+        }
+        public Result maxGainRecur(TreeNode root) {
+            if (root == null) {
+                return new Result(Integer.MIN_VALUE, 0);
+            }
 
+            Result leftResult = maxGainRecur(root.left);
+            Result rightResult = maxGainRecur(root.right);
+            int leftGain  = Math.max(leftResult.subGain, 0);
+            int rightGain = Math.max(rightResult.subGain, 0);
+            int maxSum = Math.max(leftResult.maxSum, rightResult.maxSum);
 
-    int max_sum = Integer.MIN_VALUE;
+            int subtreeSum = root.val + leftGain + rightGain;
+            maxSum = Math.max(maxSum, subtreeSum);
 
-    public int max_gain(TreeNode node) {
-        if (node == null) return 0;
-
-        // max sum on the left and right sub-trees of node
-        int left_gain = Math.max(max_gain(node.left), 0);
-        int right_gain = Math.max(max_gain(node.right), 0);
-
-        // the price to start a new path where `node` is a highest node
-        int price_newpath = node.val + left_gain + right_gain;
-
-        // update max_sum if it's better to start a new path
-        max_sum = Math.max(max_sum, price_newpath);
-
-        // for recursion :
-        // return the max gain if continue the same path
-        return node.val + Math.max(left_gain, right_gain);
-    }
-
-    public int maxPathSum(TreeNode root) {
-        max_gain(root);
-        return max_sum;
+            return new Result(maxSum, root.val + Math.max(leftGain, rightGain));
+        }
+        public int maxPathSum(TreeNode root) {
+            return maxGainRecur(root).maxSum;
+        }
     }
 }

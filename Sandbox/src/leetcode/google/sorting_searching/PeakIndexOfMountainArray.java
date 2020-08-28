@@ -1,4 +1,4 @@
-package leetcode.arrays;
+package leetcode.google.sorting_searching;
 
 public class PeakIndexOfMountainArray {
     public int peakIndexInMountainArray(int[] A) {
