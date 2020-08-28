@@ -2,6 +2,9 @@ package leetcode.google.recursion.wordsearch;
 
 import java.util.*;
 
+/**
+ * using prefix hash instead of Trie
+ */
 public class WordSearch {
 
     static class Pair {
