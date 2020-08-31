@@ -21,45 +21,42 @@ public class ThreeSum {
         Set<List<Integer>> triplets = new HashSet<>();
 
         // the remaining sum mapped to indexes
-        Map<Integer, Set<Integer>> twosum = new HashMap<>();
+        // Map<Integer, Set<Integer>> twosum = new HashMap<>();
+
+        //memoization
+        //boolean[][] memo = new boolean[nums.length][nums.length];
+        Set<Set<Integer>> alreadyTwoSummed = new HashSet<>();
         for (int i = 0; i < nums.length; ++i) {
-            for (int j = 0; j < nums.length; ++j) {
-                if (i != j) { // prevent double counting
+            for (int j = i+1; j < nums.length; ++j) {
+                // memoization check
+                Set<Integer> twoSumCheck = new HashSet<>();
+                twoSumCheck.add(nums[i]);
+                twoSumCheck.add(nums[j]);
+
+                if (!alreadyTwoSummed.contains(twoSumCheck)) {
                     int key = nums[i] + nums[j];
-                    Set<Integer> value = new HashSet<>();
-                    value.add(i);
-                    value.add(j);
-                    twosum.put(key, value);
-                }
-            }
-        }
+                    int thirdNum = 0 - key;
+                    List<Integer> triplet = new ArrayList<>();
+                    // doublecheck we aren't double counting
+                    // index of the matched third number
+                    Set<Integer> indexes = numIndexes.getOrDefault(thirdNum, new HashSet<>());
+                    // make sure this isn't already one of the two we added
+                    final int firstIndex = i;
+                    final int secondIndex = j;
+                    if (indexes.stream().anyMatch(thirdIndex -> thirdIndex != firstIndex && thirdIndex != secondIndex)) {
+                        triplet.add(nums[i]);
+                        triplet.add(nums[j]);
+                        triplet.add(thirdNum);
+                        triplet = triplet.stream().sorted().collect(Collectors.toList()); // needs to be sorted to prevent dups
 
-        System.out.println(twosum.size());
-
-        for (int key : twosum.keySet()) {
-            int thirdNum = 0 - key;
-            if (numIndexes.containsKey(thirdNum)) {
-                List<Integer> triplet = new ArrayList<>();
-                // doublecheck we aren't double counting
-                // index of the matched third number
-                Set<Integer> indexes = numIndexes.getOrDefault(thirdNum, new HashSet<>());
-                // make sure this isn't already one of the two we added
-                Set<Integer> twoSumIndexes = twosum.get(key);
-                // i.e. there is an element in indexes that isn't in twosum value
-                if (indexes.stream().anyMatch(i -> !twoSumIndexes.contains(i))) {
-                    for (int twoSumIndex : twoSumIndexes) {
-                        triplet.add(nums[twoSumIndex]);
+                        triplets.add(triplet);
+                        //System.out.println("added triplet " + triplet);
                     }
-                    triplet.add(thirdNum);
-                    triplet = triplet.stream().sorted().collect(Collectors.toList()); // needs to be sorted to prevent dups
-
-                    triplets.add(triplet);
-                    System.out.println("added triplet " + triplet);
+                    alreadyTwoSummed.add(twoSumCheck);
                 }
 
             }
         }
-
         List<List<Integer>> result = triplets.stream().collect(Collectors.toList());
 
         return result;
