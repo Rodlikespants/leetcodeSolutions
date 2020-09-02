@@ -8,7 +8,7 @@ public class AddBinary {
         int ptr1 = a.length()-1;
         int ptr2 = b.length()-1;
 
-        String result = "";
+        StringBuilder sb = new StringBuilder();
         // initialize carry to 0
         int carry = 0;
         // while the pointer is not negative for both a and b
@@ -22,15 +22,16 @@ public class AddBinary {
             carry = sum >> 1; // or sum & 2?
             //System.out.println("digit1=" + digit1 + ", digit2=" + digit2 + ", sum=" + sum + ", carry=" + carry);
             int newDigit = sum & 1;
-            result = newDigit + result;
+            sb.append(newDigit);
             // decrement the pointers
             ptr1--;
             ptr2--;
         }
 
         if (carry != 0) {
-            result = carry + result;
+            sb.append(carry);
         }
-        return result.isEmpty() ? "0" : result;
+        sb.reverse();
+        return sb.toString();
     }
 }
