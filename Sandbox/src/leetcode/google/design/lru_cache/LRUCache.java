@@ -1,4 +1,4 @@
-package interviews.design.lru_cache;
+package leetcode.google.design.lru_cache;
 
 import java.util.HashMap;
 import java.util.LinkedList;

@@ -1,5 +1,8 @@
-package leetcode.ds;
+package leetcode.ds.linkedlist;
 
+/**
+ * personal solution
+ */
 class MyLinkedList {
 
     private int length;
@@ -110,7 +113,7 @@ class MyLinkedList {
     }
 
     public static void main(String[] args) {
-        MyLinkedList list = new MyLinkedList();
+        DoublyLinkedList list = new DoublyLinkedList();
 
         list.addAtHead(86);
         list.addAtIndex(1, 54);
@@ -123,14 +126,14 @@ class MyLinkedList {
         list.addAtHead(76);
         int result3 = list.get(5);
 
-        list = new MyLinkedList();
+        list = new DoublyLinkedList();
 
         list.addAtIndex(0,10);
         list.addAtIndex(0,20);
         list.addAtIndex(1,30);
         int result0 = list.get(0);
 
-        list = new MyLinkedList();
+        list = new DoublyLinkedList();
 
         list.addAtHead(1);
         list.addAtTail(3);
@@ -139,7 +142,7 @@ class MyLinkedList {
         list.deleteAtIndex(1);
         int result2 = list.get(1);
 
-        list = new MyLinkedList();
+        list = new DoublyLinkedList();
 
 
         list.addAtHead(7);

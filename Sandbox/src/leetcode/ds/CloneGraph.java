@@ -4,6 +4,8 @@ package leetcode.ds;
 // Definition for a Node.
 */
 
+import leetcode.ds.hashmap.HashMap;
+
 import java.util.*;
 
 class CloneGraph {

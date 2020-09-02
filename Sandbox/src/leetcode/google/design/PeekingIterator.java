@@ -1,4 +1,4 @@
-package interviews.design;
+package leetcode.google.design;
 
 
 import java.util.Iterator;

@@ -3,6 +3,9 @@ package leetcode.google.arrays_strings.threesum;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * times out on test case 311/313
+ */
 public class ThreeSum {
 
     public List<List<Integer>> threeSum(int[] nums) {
