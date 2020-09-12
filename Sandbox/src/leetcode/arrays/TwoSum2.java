@@ -2,6 +2,7 @@ package leetcode.arrays;
 
 /**
  * solution from leetcode comments
+ * assuming sorted input array
  */
 public class TwoSum2 {
     public int[] twoSum(int[] numbers, int target) {

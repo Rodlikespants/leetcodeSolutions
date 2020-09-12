@@ -1,4 +1,4 @@
-package leetcode.google.design;
+package leetcode.google.design.minstack;
 
 import java.util.Stack;
 

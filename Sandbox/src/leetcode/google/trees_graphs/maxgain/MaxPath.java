@@ -1,4 +1,4 @@
-package leetcode.google.trees_graphs;
+package leetcode.google.trees_graphs.maxgain;
 
 public class MaxPath {
     static class TreeNode {

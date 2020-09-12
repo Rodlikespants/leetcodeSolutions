@@ -5,6 +5,9 @@ import java.util.Map;
 
 class LongestWord {
 
+    /**
+     * non repeating
+     */
     public int lengthOfLongestSubstring(String s) {
         int longestLen = 0;
         Map<Character, Integer> indexLookup = new HashMap<>();

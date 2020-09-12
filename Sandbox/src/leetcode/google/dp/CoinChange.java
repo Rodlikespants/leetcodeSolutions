@@ -10,6 +10,12 @@ public class CoinChange {
         return result;
     }
 
+    /**
+     * @param coins
+     * @param amount
+     * @param cache int array acting as a hash for memoized results
+     * @return
+     */
     int findCoins(int[] coins, int amount, int[] cache) {
         if (amount == 0) {
             return 0;
@@ -17,6 +23,8 @@ public class CoinChange {
         if (amount < 0) {
             return -1;
         }
+
+        // off by one indexing
         if (cache[amount-1] != 0) {
             return cache[amount-1];
         }

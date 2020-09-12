@@ -1,4 +1,4 @@
-package leetcode.google.design;
+package leetcode.google.design.search_autocomplete;
 
 
 import java.util.ArrayList;

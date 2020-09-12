@@ -1,5 +1,10 @@
 package leetcode.google.dp.maximum_subarray;
 
+/**
+ * keep track of max sum in place cumulatively
+ * if the previous is a negative number start from scratch
+ * keep comparing the current cumulative sum
+ */
 class Solution {
     public int maxSubArray(int[] nums) {
         int n = nums.length, maxSum = nums[0];
